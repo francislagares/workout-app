@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 import { View, Text, Button, StyleSheet, FlatList } from 'react-native';
-import WorkoutItem from '../components/Workout/WorkoutItem';
+import WorkoutItem from '../components/WorkoutItem/WorkoutItem';
 import data from '../data.json';
-import { IWorkout } from 'types/data';
+import { IWorkout } from '../types/data';
 
 const HomeScreen = ({ navigation }: NativeStackHeaderProps) => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const HomeScreen = ({ navigation }: NativeStackHeaderProps) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>I am home screen</Text>
+      <Text style={styles.header}>New Workouts</Text>
       <FlatList
         data={data as IWorkout[]}
         keyExtractor={item => item.slug}
@@ -39,5 +39,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 20,
     fontWeight: 'bold',
+    fontFamily: 'montserrat-bold',
   },
 });

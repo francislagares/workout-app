@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { IWorkout } from 'types/data';
+import { IWorkout } from '../../types/data';
 
 const WorkoutItem = ({ item }: { item: IWorkout }) => {
   return (
