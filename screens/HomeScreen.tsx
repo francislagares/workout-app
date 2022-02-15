@@ -1,9 +1,24 @@
 import React, { useEffect } from 'react';
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
-import { View, Text, Button, StyleSheet, FlatList } from 'react-native';
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  FlatList,
+  Pressable,
+} from 'react-native';
 import WorkoutItem from '../components/WorkoutItem/WorkoutItem';
 import data from '../data.json';
 import { IWorkout } from '../types/data';
+
+const PressableItem = ({ item }: { item: IWorkout }) => {
+  return (
+    <Pressable onPress={() => alert(`I am pressed ${item.name}`)}>
+      <WorkoutItem item={item} />
+    </Pressable>
+  );
+};
 
 const HomeScreen = ({ navigation }: NativeStackHeaderProps) => {
   useEffect(() => {
@@ -18,7 +33,7 @@ const HomeScreen = ({ navigation }: NativeStackHeaderProps) => {
       <FlatList
         data={data as IWorkout[]}
         keyExtractor={item => item.slug}
-        renderItem={WorkoutItem}
+        renderItem={PressableItem}
       />
       <Button
         title='Go to Planner'
