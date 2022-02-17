@@ -35,7 +35,11 @@ const HomeScreen = ({ navigation }: NativeStackHeaderProps) => {
         keyExtractor={item => item.slug}
         renderItem={({ item }) => {
           return (
-            <Pressable onPress={() => navigation.navigate('WorkoutDetail')}>
+            <Pressable
+              onPress={() =>
+                navigation.navigate('WorkoutDetail', { slug: item.slug })
+              }
+            >
               <WorkoutItem item={item} />
             </Pressable>
           );
